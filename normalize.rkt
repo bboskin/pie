@@ -300,6 +300,8 @@
        (PI x A-v (FO-CLOS ρ x B)))]
     [`(λ (,x) ,b)
      (LAM x (FO-CLOS ρ x b))]
+    [`(let ((,x ,x-e)) ,b)
+     (val-of (extend-env ρ x (val-of ρ x-e)) b)]
     [`(which-Nat ,tgt (the ,b-t ,b) ,s)
      (do-which-Nat (val-of ρ tgt)
                    (val-of ρ b-t)
